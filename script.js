@@ -41,9 +41,11 @@
 
 // ===== Navbar scroll state =====
 const navbar = document.getElementById("navbar");
-window.addEventListener("scroll", () => {
-  navbar.classList.toggle("scrolled", window.scrollY > 40);
-});
+if (navbar) {
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 40);
+  });
+}
 
 // ===== Mobile menu =====
 const menuToggle = document.getElementById("menuToggle");
@@ -107,4 +109,69 @@ joinForm?.addEventListener("submit", (e) => {
     formNote.textContent = `You're on the list, ${email.split("@")[0]}! Check your inbox for the briefing.`;
     joinForm.reset();
   }
+});
+
+// ===== Registration form =====
+const registerForm = document.getElementById("registerForm");
+const registerNote = document.getElementById("registerNote");
+
+function setFieldError(input, message) {
+  const field = input.closest(".field");
+  if (!field) return;
+  const errorEl = field.querySelector(".field-error");
+  field.classList.toggle("invalid", Boolean(message));
+  if (errorEl) errorEl.textContent = message || "";
+}
+
+registerForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("regName");
+  const email = document.getElementById("regEmail");
+  const role = document.getElementById("regRole");
+  const password = document.getElementById("regPassword");
+  const confirm = document.getElementById("regConfirm");
+  const terms = document.getElementById("regTerms");
+
+  let valid = true;
+  const fail = (input, msg) => { setFieldError(input, msg); valid = false; };
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (name.value.trim().length < 2) fail(name, "Please enter your full name."); else setFieldError(name, "");
+  if (!emailRe.test(email.value.trim())) fail(email, "Enter a valid email address."); else setFieldError(email, "");
+  if (!role.value) fail(role, "Please select a role."); else setFieldError(role, "");
+  if (password.value.length < 8) fail(password, "Password must be at least 8 characters."); else setFieldError(password, "");
+  if (confirm.value !== password.value || !confirm.value) fail(confirm, "Passwords do not match."); else setFieldError(confirm, "");
+
+  registerNote.style.color = "";
+  if (!terms.checked) {
+    valid = false;
+    registerNote.style.color = "#ff6b6b";
+    registerNote.textContent = "You must agree to the mission terms to continue.";
+  }
+
+  if (!valid) {
+    if (terms.checked) registerNote.textContent = "";
+    return;
+  }
+
+  registerNote.textContent = `Welcome aboard, ${name.value.trim().split(" ")[0]}! Your SkyCrew application has been received.`;
+  registerForm.reset();
+  registerForm.querySelectorAll(".field").forEach((f) => f.classList.remove("invalid"));
+});
+
+// Clear a field's error as the user corrects it
+registerForm?.querySelectorAll("input, select").forEach((el) => {
+  el.addEventListener("input", () => setFieldError(el, ""));
+});
+
+// Show / hide password
+document.querySelectorAll(".toggle-pw").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const input = document.getElementById(btn.dataset.target);
+    if (!input) return;
+    const show = input.type === "password";
+    input.type = show ? "text" : "password";
+    btn.classList.toggle("active", show);
+    btn.setAttribute("aria-label", show ? "Hide password" : "Show password");
+  });
 });
