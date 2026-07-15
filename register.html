@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create your account — SkyCrew</title>
+  <meta name="description" content="Create your SkyCrew account and begin the astronaut selection process." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-body">
+  <canvas id="starfield"></canvas>
+
+  <main class="auth-shell">
+    <!-- Brand panel -->
+    <aside class="auth-aside">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2c3.2 2.1 5 5.4 5 9.4 0 2.4-.9 4.6-2.3 6.3L12 21l-2.7-3.3A9.7 9.7 0 0 1 7 11.4C7 7.4 8.8 4.1 12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="12" cy="10" r="2.1" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M9 18.5 6.5 21m8.5-2.5L17.5 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo-text">Sky<span>Crew</span></span>
+      </a>
+      <div class="auth-aside-body">
+        <h2>Join the next<br /><span class="grad">expedition.</span></h2>
+        <p>Create your crew profile to begin the astronaut selection process and track your mission readiness.</p>
+        <ul class="auth-points">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Personalized mission briefings
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Access to VR training simulations
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Priority seat on Expedition 2026
+          </li>
+        </ul>
+      </div>
+      <p class="auth-aside-foot">© 2026 SkyCrew — Per aspera ad astra.</p>
+    </aside>
+
+    <!-- Form panel -->
+    <section class="auth-main">
+      <div class="auth-card">
+        <a href="index.html" class="auth-back">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back to home
+        </a>
+        <header class="auth-head">
+          <h1>Create your account</h1>
+          <p>Already have one? <a href="#" class="auth-link">Sign in</a></p>
+        </header>
+
+        <form class="register-form" id="registerForm" novalidate>
+          <div class="field field-full">
+            <label for="regName">Full name</label>
+            <input type="text" id="regName" name="name" placeholder="Ava Nakamura" autocomplete="name" required />
+            <span class="field-error"></span>
+          </div>
+          <div class="field field-full">
+            <label for="regEmail">Email address</label>
+            <input type="email" id="regEmail" name="email" placeholder="you@galaxy.com" autocomplete="email" required />
+            <span class="field-error"></span>
+          </div>
+          <div class="field field-full">
+            <label for="regRole">Preferred role</label>
+            <select id="regRole" name="role" required>
+              <option value="" disabled selected>Select a role</option>
+              <option value="commander">Mission Commander</option>
+              <option value="engineer">Flight Engineer</option>
+              <option value="scientist">Science Specialist</option>
+              <option value="pilot">Systems Pilot</option>
+            </select>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="regPassword">Password</label>
+            <div class="input-wrap">
+              <input type="password" id="regPassword" name="password" placeholder="••••••••" autocomplete="new-password" required />
+              <button type="button" class="toggle-pw" data-target="regPassword" aria-label="Show password">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+              </button>
+            </div>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="regConfirm">Confirm password</label>
+            <div class="input-wrap">
+              <input type="password" id="regConfirm" name="confirm" placeholder="••••••••" autocomplete="new-password" required />
+              <button type="button" class="toggle-pw" data-target="regConfirm" aria-label="Show password">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+              </button>
+            </div>
+            <span class="field-error"></span>
+          </div>
+          <label class="field-check field-full">
+            <input type="checkbox" id="regTerms" name="terms" required />
+            <span>I agree to the SkyCrew <a href="#" class="auth-link">mission terms</a> and <a href="#" class="auth-link">code of conduct</a>.</span>
+          </label>
+          <button type="submit" class="btn btn-primary field-full">Create Account</button>
+          <p class="form-note" id="registerNote"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
