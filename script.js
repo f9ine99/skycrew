@@ -164,6 +164,38 @@ registerForm?.querySelectorAll("input, select").forEach((el) => {
   el.addEventListener("input", () => setFieldError(el, ""));
 });
 
+// ===== Login form =====
+const loginForm = document.getElementById("loginForm");
+const loginNote = document.getElementById("loginNote");
+
+loginForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("loginEmail");
+  const password = document.getElementById("loginPassword");
+
+  let valid = true;
+  const fail = (input, msg) => { setFieldError(input, msg); valid = false; };
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRe.test(email.value.trim())) fail(email, "Enter a valid email address."); else setFieldError(email, "");
+  if (password.value.length < 8) fail(password, "Password must be at least 8 characters."); else setFieldError(password, "");
+
+  if (!valid) {
+    loginNote.textContent = "";
+    return;
+  }
+
+  const handle = email.value.trim().split("@")[0];
+  loginNote.style.color = "";
+  loginNote.textContent = `Welcome back, ${handle}! You're signed in to SkyCrew.`;
+  loginForm.reset();
+  loginForm.querySelectorAll(".field").forEach((f) => f.classList.remove("invalid"));
+});
+
+loginForm?.querySelectorAll("input").forEach((el) => {
+  el.addEventListener("input", () => setFieldError(el, ""));
+});
+
 // Show / hide password
 document.querySelectorAll(".toggle-pw").forEach((btn) => {
   btn.addEventListener("click", () => {

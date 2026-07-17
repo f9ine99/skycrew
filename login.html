@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create your account — SkyCrew</title>
-  <meta name="description" content="Create your SkyCrew traveler account to book and manage your trips to space." />
+  <title>Sign in — SkyCrew</title>
+  <meta name="description" content="Sign in to your SkyCrew traveler account to book and manage your trips to space." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -27,20 +27,20 @@
         <span class="logo-text">Sky<span>Crew</span></span>
       </a>
       <div class="auth-aside-body">
-        <h2>Book your trip<br /><span class="grad">to space.</span></h2>
-        <p>Create your traveler account to book journeys, manage bookings, and track your upcoming launches.</p>
+        <h2>Welcome back<br /><span class="grad">to SkyCrew.</span></h2>
+        <p>Sign in to manage bookings, track upcoming launches, and continue planning your next journey beyond Earth.</p>
         <ul class="auth-points">
           <li>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Book orbit, Moon, and Mars trips
+            Access your traveler dashboard
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Manage bookings in one place
+            Review and update bookings
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Early access to new destinations
+            Get launch reminders and updates
           </li>
         </ul>
       </div>
@@ -55,58 +55,35 @@
           Back to home
         </a>
         <header class="auth-head">
-          <h1>Create your account</h1>
-          <p>Already have one? <a href="login.html" class="auth-link">Sign in</a></p>
+          <h1>Sign in</h1>
+          <p>New to SkyCrew? <a href="register.html" class="auth-link">Create an account</a></p>
         </header>
 
-        <form class="register-form" id="registerForm" novalidate>
+        <form class="login-form" id="loginForm" novalidate>
           <div class="field field-full">
-            <label for="regName">Full name</label>
-            <input type="text" id="regName" name="name" placeholder="Ava Nakamura" autocomplete="name" required />
+            <label for="loginEmail">Email address</label>
+            <input type="email" id="loginEmail" name="email" placeholder="you@galaxy.com" autocomplete="email" required />
             <span class="field-error"></span>
           </div>
           <div class="field field-full">
-            <label for="regEmail">Email address</label>
-            <input type="email" id="regEmail" name="email" placeholder="you@galaxy.com" autocomplete="email" required />
-            <span class="field-error"></span>
-          </div>
-          <div class="field field-full">
-            <label for="regDestination">Preferred destination</label>
-            <select id="regDestination" name="destination" required>
-              <option value="" disabled selected>Select a destination</option>
-              <option value="orbit">Orbital Getaway</option>
-              <option value="lunar">Lunar Voyage</option>
-              <option value="mars">Red Frontier (Mars)</option>
-              <option value="undecided">Not sure yet</option>
-            </select>
-            <span class="field-error"></span>
-          </div>
-          <div class="field">
-            <label for="regPassword">Password</label>
+            <label for="loginPassword">Password</label>
             <div class="input-wrap">
-              <input type="password" id="regPassword" name="password" placeholder="••••••••" autocomplete="new-password" required />
-              <button type="button" class="toggle-pw" data-target="regPassword" aria-label="Show password">
+              <input type="password" id="loginPassword" name="password" placeholder="••••••••" autocomplete="current-password" required />
+              <button type="button" class="toggle-pw" data-target="loginPassword" aria-label="Show password">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
               </button>
             </div>
             <span class="field-error"></span>
           </div>
-          <div class="field">
-            <label for="regConfirm">Confirm password</label>
-            <div class="input-wrap">
-              <input type="password" id="regConfirm" name="confirm" placeholder="••••••••" autocomplete="new-password" required />
-              <button type="button" class="toggle-pw" data-target="regConfirm" aria-label="Show password">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
-              </button>
-            </div>
-            <span class="field-error"></span>
+          <div class="field-row field-full">
+            <label class="field-check">
+              <input type="checkbox" id="loginRemember" name="remember" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="auth-link">Forgot password?</a>
           </div>
-          <label class="field-check field-full">
-            <input type="checkbox" id="regTerms" name="terms" required />
-            <span>I agree to the SkyCrew <a href="#" class="auth-link">travel terms</a> and <a href="#" class="auth-link">safety policy</a>.</span>
-          </label>
-          <button type="submit" class="btn btn-primary field-full">Create Account</button>
-          <p class="form-note" id="registerNote"></p>
+          <button type="submit" class="btn btn-primary field-full">Sign In</button>
+          <p class="form-note" id="loginNote"></p>
         </form>
       </div>
     </section>
