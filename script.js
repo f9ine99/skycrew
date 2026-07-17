@@ -106,7 +106,7 @@ joinForm?.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.getElementById("emailInput").value.trim();
   if (email) {
-    formNote.textContent = `You're on the list, ${email.split("@")[0]}! Check your inbox for the briefing.`;
+    formNote.textContent = `You're on the list, ${email.split("@")[0]}! Watch your inbox for new destinations and deals.`;
     joinForm.reset();
   }
 });
@@ -127,7 +127,7 @@ registerForm?.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("regName");
   const email = document.getElementById("regEmail");
-  const role = document.getElementById("regRole");
+  const destination = document.getElementById("regDestination");
   const password = document.getElementById("regPassword");
   const confirm = document.getElementById("regConfirm");
   const terms = document.getElementById("regTerms");
@@ -138,7 +138,7 @@ registerForm?.addEventListener("submit", (e) => {
 
   if (name.value.trim().length < 2) fail(name, "Please enter your full name."); else setFieldError(name, "");
   if (!emailRe.test(email.value.trim())) fail(email, "Enter a valid email address."); else setFieldError(email, "");
-  if (!role.value) fail(role, "Please select a role."); else setFieldError(role, "");
+  if (!destination.value) fail(destination, "Please select a destination."); else setFieldError(destination, "");
   if (password.value.length < 8) fail(password, "Password must be at least 8 characters."); else setFieldError(password, "");
   if (confirm.value !== password.value || !confirm.value) fail(confirm, "Passwords do not match."); else setFieldError(confirm, "");
 
@@ -146,7 +146,7 @@ registerForm?.addEventListener("submit", (e) => {
   if (!terms.checked) {
     valid = false;
     registerNote.style.color = "#ff6b6b";
-    registerNote.textContent = "You must agree to the mission terms to continue.";
+    registerNote.textContent = "You must agree to the travel terms to continue.";
   }
 
   if (!valid) {
@@ -154,7 +154,7 @@ registerForm?.addEventListener("submit", (e) => {
     return;
   }
 
-  registerNote.textContent = `Welcome aboard, ${name.value.trim().split(" ")[0]}! Your SkyCrew application has been received.`;
+  registerNote.textContent = `Welcome aboard, ${name.value.trim().split(" ")[0]}! Your SkyCrew traveler account is ready.`;
   registerForm.reset();
   registerForm.querySelectorAll(".field").forEach((f) => f.classList.remove("invalid"));
 });

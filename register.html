@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Create your account — SkyCrew</title>
-  <meta name="description" content="Create your SkyCrew account and begin the astronaut selection process." />
+  <meta name="description" content="Create your SkyCrew traveler account to book and manage your trips to space." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -27,20 +27,20 @@
         <span class="logo-text">Sky<span>Crew</span></span>
       </a>
       <div class="auth-aside-body">
-        <h2>Join the next<br /><span class="grad">expedition.</span></h2>
-        <p>Create your crew profile to begin the astronaut selection process and track your mission readiness.</p>
+        <h2>Book your trip<br /><span class="grad">to space.</span></h2>
+        <p>Create your traveler account to book journeys, manage bookings, and track your upcoming launches.</p>
         <ul class="auth-points">
           <li>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Personalized mission briefings
+            Book orbit, Moon, and Mars trips
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Access to VR training simulations
+            Manage bookings in one place
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Priority seat on Expedition 2026
+            Early access to new destinations
           </li>
         </ul>
       </div>
@@ -71,13 +71,13 @@
             <span class="field-error"></span>
           </div>
           <div class="field field-full">
-            <label for="regRole">Preferred role</label>
-            <select id="regRole" name="role" required>
-              <option value="" disabled selected>Select a role</option>
-              <option value="commander">Mission Commander</option>
-              <option value="engineer">Flight Engineer</option>
-              <option value="scientist">Science Specialist</option>
-              <option value="pilot">Systems Pilot</option>
+            <label for="regDestination">Preferred destination</label>
+            <select id="regDestination" name="destination" required>
+              <option value="" disabled selected>Select a destination</option>
+              <option value="orbit">Orbital Getaway</option>
+              <option value="lunar">Lunar Voyage</option>
+              <option value="mars">Red Frontier (Mars)</option>
+              <option value="undecided">Not sure yet</option>
             </select>
             <span class="field-error"></span>
           </div>
@@ -103,7 +103,7 @@
           </div>
           <label class="field-check field-full">
             <input type="checkbox" id="regTerms" name="terms" required />
-            <span>I agree to the SkyCrew <a href="#" class="auth-link">mission terms</a> and <a href="#" class="auth-link">code of conduct</a>.</span>
+            <span>I agree to the SkyCrew <a href="#" class="auth-link">travel terms</a> and <a href="#" class="auth-link">safety policy</a>.</span>
           </label>
           <button type="submit" class="btn btn-primary field-full">Create Account</button>
           <p class="form-note" id="registerNote"></p>
