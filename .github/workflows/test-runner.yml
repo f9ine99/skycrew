@@ -1,4 +1,4 @@
-name: Test self-hosted runner on rocky linux
+name: Test self-hosted runner on Rocky Linux
 
 on:
   push:
@@ -13,9 +13,8 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Display system information
-    run: |
-    hostnamectl
-    uname -a
-    whoami
-    
+      - name: Display system information
+        run: |
+          hostnamectl
+          uname -a
+          whoami
