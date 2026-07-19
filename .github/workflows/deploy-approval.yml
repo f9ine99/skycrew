@@ -1,0 +1,32 @@
+name: Approval-Based Deployment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' || github.event.pull_request.merged == true
+    runs-on: self-hosted
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Ubuntu web server
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i /home/rocky/.ssh/github_deploy -o StrictHostKeyChecking=no" \
+            ./ deploy@192.168.1.2:/var/www/skycrew/ \
+            --exclude '.git' \
+            --exclude '.github'
+
+      - name: Verify deployment
+        run: |
+          curl -sf http://192.168.1.2 | head -5
